@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Strona główna' %}</a>
+&rsaquo; {% trans 'Błąd serwera' %}
+</div>
+{% endblock %}
+
+{% block title %}{% trans 'Server error (500)' %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Server Error <em>(500)</em>' %}</h1>
+<p>{% trans "Wystąpił błąd. Administrator został powiadomiony, postara się jak najszybciej rozwiązać problem. Dziękujemy za cierpliwość." %}</p>
+
+{% endblock %}

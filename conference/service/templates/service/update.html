@@ -1,0 +1,27 @@
+<h1>Witaj, {{ user.name }} {{ user.last_name }}!</h2>
+<h2>Wydarzenie na które jesteś zapisany: </h2>
+{{user.event}}
+<br/>
+<h2>Twoje dane:</h2>
+</table>
+<form action="../../../register/add/{{ user.event_name.id }}/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <table>
+    {% for item in question_list %}
+    <tr>
+        <td>
+            {% if item.required == 1 %}
+            *
+        {% endif %}
+        {{ item.q }}:
+        </td>
+        <td>
+            <input type="text" name="cq_{{ item.id }}" value="{{ item.value }}">
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" value="Submit" />
+</form>
+

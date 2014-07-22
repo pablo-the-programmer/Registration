@@ -1,0 +1,29 @@
+{% if event %}
+<h1>{{ event.name }}</h1>
+<h1>{{ host.HTTP_REFERER}}</h1>
+    <table>
+         <tr>
+            <td>Miejsce: </td> <td>{{ event.place }}</td>
+        </tr>
+        <tr>
+            <td>Początek wydarzenia:</td> <td>{{ event.date_begin }}</td>
+        </tr>
+         <tr>
+            <td>Koniec wydarzenia: </td> <td>{{ event.date_end }}</td>
+        </tr>
+          <tr>
+            <td>Kontakt e-mail: </td> <td>{{ event.contact_mail }}</td>
+        </tr>
+        <tr>
+            <td>Kontakt telefoniczny: </td> <td>{{ event.contact_phone }}</td>
+        </tr>
+        <tr>
+            <td>Koszt: </td> <td>{{ event.cost }}</td>
+        </tr>
+    </table>
+
+    <h2><a href="../register/add/{{ event.id }}/">Zarejestruj się</a></h2>
+{% else %}
+<p>Fail.</p>
+{% endif %}
+</body>

@@ -1,0 +1,10 @@
+from django.conf.urls import patterns, url
+
+from service import views
+from service.models import Event
+
+urlpatterns = patterns('',
+    url(r'^$', views.index, name='index'),
+    url(r'^events/(?P<event_name_id>\d+)/$', views.events, name='events'),
+
+)

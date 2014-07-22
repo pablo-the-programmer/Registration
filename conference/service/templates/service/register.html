@@ -1,0 +1,21 @@
+<h1>** {{ question_list}} **</h1>
+<form action="../../../register/add/{{ event.id }}/" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<table>
+{% for item in question_list %}
+<tr>
+    <td>
+        {% if item.required == 1 %}
+        *
+    {% endif %}
+    {{ item.q }}:
+    </td>
+    <td>
+    <input type="text" name="cq_{{ item.id }}">
+    </td>
+</tr>
+{% endfor %}
+</table>
+<input type="submit" value="Submit" />
+</form>
